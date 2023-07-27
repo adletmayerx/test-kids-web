@@ -8,4 +8,4 @@ userRouter.get("/me", getUserInfo);
 userRouter.get("/:id", userIdValidation, getUser);
 userRouter.patch("/me/feedback", userFeedbackValidation, updateFeedback);
 
-module.exports = userRouter;
+export default userRouter;

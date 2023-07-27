@@ -9,13 +9,14 @@ import { login, createUser, signOut } from "./controllers/user";
 import { loginValidation, userValidation } from "./middlewares/validation";
 import auth from "./middlewares/auth";
 import { requestLogger, errorLogger } from "./middlewares/logger";
+import usersRouter from "./routes/users";
 
 dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT ?? 3000;
 
-mongoose.connect("mongodb://localhost:27017/test-kids-web");
+mongoose.connect("mongodb://127.0.0.1:27017/test-kids-web");
 
 app.use(corsCustom);
 
@@ -39,7 +40,7 @@ app.delete("/signout", signOut);
 
 app.use(auth);
 
-app.use("/users", require("./routes/users"));
+app.use("/users", usersRouter);
 app.listen(port, () => {
-  console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
+  console.log(`⚡️[server]: Server is running at http://127.0.0.1:${port}`);
 });
