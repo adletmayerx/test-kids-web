@@ -1,8 +1,19 @@
 {
   "dependencies": {
-    "validator": "^13.9.0"
+    "bcrypt": "^5.1.0",
+    "celebrate": "^15.0.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express-winston": "^4.2.0",
+    "jsonwebtoken": "^9.0.1",
+    "validator": "^13.9.0",
+    "winston": "^3.10.0"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.13",
+    "@types/jsonwebtoken": "^9.0.2",
     "@types/validator": "^13.7.17"
   }
 }
