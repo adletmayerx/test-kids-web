@@ -18,4 +18,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     select: false,
   },
+  feedback: {
+    type: String,
+  },
 });
