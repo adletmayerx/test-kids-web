@@ -7,7 +7,8 @@ import { Request, Response, NextFunction } from "express";
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 export const getUser = (req: Request, res: Response, next: NextFunction) => {
-  User.findById(req.params.id)
+  //@ts-ignore
+  User.findById(req.user._id)
     .orFail(new NotFoundError("Пользователь по указанному _id не найден"))
     .then((user) => {
       res.send(user);
@@ -26,7 +27,8 @@ export const updateFeedback = (req: Request, res: Response, next: NextFunction) 
   const { feedback } = req.body;
 
   User.findByIdAndUpdate(
-    req.params._id,
+  //@ts-ignore
+    req.user._id,
     { feedback },
     {
       new: true,
@@ -116,7 +118,8 @@ export const login = (req: Request, res: Response, next: NextFunction) => {
 };
 
 export const getUserInfo = (req: Request, res: Response, next: NextFunction) => {
-  User.findById(req.params._id)
+  //@ts-ignore
+  User.findById(req.user._id)
     .then((user) => {
       res.send(user);
     })
@@ -124,5 +127,8 @@ export const getUserInfo = (req: Request, res: Response, next: NextFunction) => 
 };
 
 export const signOut = (req: Request, res: Response) => {
-  res.cookie("jwt", { maxAge: 0 }).send({ message: "cookies deleted" });
+  res.cookie("jwt", { httpOnly: true,
+    maxAge: 0,
+    sameSite: "none",
+    secure: true, }).send({ message: "cookies deleted" });
 };
