@@ -25,7 +25,7 @@ import { TextVue } from "../components/shared";
     </div>
 
     <div class="grid grid-cols-1 justify-items-center xl:grid-cols-[512px_1fr] xl:gap-4 xl:justify-items-stretch">
-      <img src="../assets/photo_2.png" alt="фото меня, вкусно поевшего" class="self-center xl:max-w-lg" />
+      <img src="../assets/photo_2.png" alt="фото меня, вкусно поевшего" class="self-center max-w-lg" />
       <div class="flex flex-col gap-3 items-center">
         <TextVue>
           Сначала было нелегко. Мне пришлось выучить совершенно новый язык и способ мышления. Но когда я начал понимать
