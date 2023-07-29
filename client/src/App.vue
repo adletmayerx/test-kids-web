@@ -5,7 +5,7 @@ import { HeaderVue } from "./components";
 
 <template>
   <HeaderVue></HeaderVue>
-  <main>
+  <main class="flex flex-col">
     <RouterView />
   </main>
 </template>
