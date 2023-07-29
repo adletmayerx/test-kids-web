@@ -24,10 +24,10 @@ const handleSubmit = () => {
     <TextVue>Для входа введите свои данные</TextVue>
 
     <form @submit.prevent="handleSubmit" class="flex flex-col justify-start gap-4 mt-11">
-      <input type="email" placeholder="email" class="p-3 border border-matterhorn rounded xl:w-96">
-      <input type="password" placeholder="пароль" class="p-3 border border-matterhorn rounded xl:w-96">
+      <input type="email" placeholder="email" class="p-3 w-72 h-12 border border-matterhorn rounded xl:w-96">
+      <input type="password" placeholder="пароль" class="p-3 w-72 h-12 border border-matterhorn rounded xl:w-96">
 
-      <button type="submit" class="px-28 py-3 bg-matterhorn text-gray-50 rounded xl:px-36">Войти</button>
+      <button type="submit" class="w-72 h-12 bg-matterhorn text-gray-50 rounded xl:w-96">Войти</button>
     </form>
   </div>
 </template>
