@@ -4,7 +4,7 @@ import { RouterLink } from "vue-router";
 
 <template>
   <header class="bg-matterhorn">
-    <nav class="flex justify-between py-4 px-3">
+    <nav class="flex justify-between py-4 px-3 md:justify-end md:gap-12">
       <RouterLink to="/login" class="text-gray-50 text-lg">Войти</RouterLink>
       <RouterLink to="/login" class="text-gray-50 text-lg">Зарегистрироваться</RouterLink>
     </nav>
