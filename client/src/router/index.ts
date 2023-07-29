@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { HomeView, LoginView, RegisterView } from "../views";
+import { HomeView, LoginView, RegisterView, SecretsView } from "../views";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,6 +18,11 @@ const router = createRouter({
       path: "/register",
       name: "register",
       component: RegisterView,
+    },
+    {
+      path: "/secrets",
+      name: "secrets",
+      component: SecretsView,
     },
     // {
     //   path: "/:pathMatch(.*)*",
