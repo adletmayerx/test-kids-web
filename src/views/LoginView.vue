@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { TextVue, ButtonVue, InputVue } from '../components/shared';
+import api from "../utils/api"
 
 const email = ref('');
 const password = ref('');
@@ -19,18 +20,7 @@ const handleInputChange = (params: { inputValue: string, type: "email" | "passwo
 }
 
 const handleSubmit = () => {
-  fetch(`http://localhost:3000/signin`, {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    credentials: "include",
-    body: JSON.stringify({
-      "email": email.value,
-      "password": password.value
-    }),
-  }).then(() => {
+  api.authorize(email.value, password.value).then(() => {
     emit('login')
   }).catch(e => console.error(e));
 }

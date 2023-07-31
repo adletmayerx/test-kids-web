@@ -1,30 +1,21 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import api from "../utils/api"
 
 const feedback = ref('');
 const feedbackIsSent = ref(false);
 
 const handleSubmit = () => {
-  fetch(`http://localhost:3000/users/me/feedback`, {
-    method: 'PATCH',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    credentials: "include",
-    body: JSON.stringify({
-      "feedback": feedback.value,
-    }),
-  }).then((result) => {
-    console.log(result)
-
+  api.addFeedback(feedback.value).then(() => {
+    feedbackIsSent.value = true;
   });
 }
 </script>
 
 <template>
   <div class="mx-auto max-w-7xl w-full flex flex-col py-12 px-4 gap-3 xl:py-28 xl:px-36">
-    <a href="https://github.com/adletmayerx/test-kids-web" target="_blank" class="text-nero text-2xl hover:opacity-70 transition-opacity">🍯 - ссылка на
+    <a href="https://github.com/adletmayerx/test-kids-web" target="_blank"
+      class="text-nero text-2xl hover:opacity-70 transition-opacity">🍯 - ссылка на
       репозиторий</a>
     <div class="flex flex-col gap-3">
       <h3 class="text-nero text-2xl">Моя любимая фишка из css 🎨:</h3>

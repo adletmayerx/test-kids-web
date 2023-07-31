@@ -1,16 +1,13 @@
 <script setup lang="ts">
-import { RouterLink} from "vue-router";
+import { RouterLink } from "vue-router";
+import api from "../utils/api"
 
 defineProps<{ isLoggedIn: boolean }>();
 
 const emit = defineEmits<{ (e: "signout"): void }>();
 
-
 const handleClick = () => {
-  fetch(`http://localhost:3000/signout`, {
-    method: "DELETE",
-    credentials: "include",
-  }).then(() => {
+  api.signOut().then(() => {
     emit("signout");
   }).catch(e => console.error(e))
 }
