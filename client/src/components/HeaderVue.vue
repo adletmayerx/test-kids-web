@@ -6,20 +6,20 @@ defineProps<{ isLoggedIn: boolean }>()
 
 <template>
   <header class="bg-matterhorn">
-    <nav v-if="!isLoggedIn" class="mx-auto max-w-7xl w-full flex justify-between py-4 px-3 md:gap-3">
+    <nav v-if="!isLoggedIn" class="mx-auto max-w-7xl w-full flex justify-between py-4 px-3 md:gap-3 xl:px-36">
       <RouterLink to="/" class="text-gray-50 text-md">Главная</RouterLink>
       <div class="flex gap-3">
-        <RouterLink to="/login" class="text-gray-50 text-md">Вход</RouterLink>
-        <RouterLink to="/register" class="text-gray-50 text-md">Регистрация</RouterLink>
+        <RouterLink to="/login" class="text-gray-50 text-md hover:opacity-70 transition-opacity">Вход</RouterLink>
+        <RouterLink to="/register" class="text-gray-50 text-md hover:opacity-70 transition-opacity">Регистрация</RouterLink>
       </div>
     </nav>
-    <nav v-else class="mx-auto max-w-7xl w-full flex justify-between py-4 px-3 md:gap-3">
+    <nav v-else class="mx-auto max-w-7xl w-full flex justify-between py-4 px-3 md:gap-3 xl:px-36">
       <div class="flex gap-3">
-        <RouterLink to="/" class="text-gray-50 text-md">Главная</RouterLink>
-        <RouterLink to="/secrets" class="text-gray-50 text-md">Секреты</RouterLink>
-        <RouterLink to="/task" class="text-gray-50 text-md">Задание</RouterLink>
+        <RouterLink to="/" class="text-gray-50 text-md hover:opacity-70 transition-opacity">Главная</RouterLink>
+        <RouterLink to="/secrets" class="text-gray-50 text-md hover:opacity-70 transition-opacity">Секреты</RouterLink>
+        <!-- <RouterLink to="/task" class="text-gray-50 text-md hover:opacity-70 transition-opacity">Задание</RouterLink> -->
       </div>
-      <RouterLink to="/hell" class="text-gray-50 text-md">Выйти</RouterLink>
+      <RouterLink to="/hell" class="text-gray-50 text-md hover:opacity-70 transition-opacity">Выйти</RouterLink>
     </nav>
   </header>
 </template>
