@@ -12,10 +12,15 @@ const handleLogin = () => {
   router.push('/secrets');
 }
 
+const handleSignOut = () => {
+  isLoggedIn.value = false;
+  router.push('/');
+}
+
 </script>
 
 <template>
-  <HeaderVue :isLoggedIn="isLoggedIn"></HeaderVue>
+  <HeaderVue :isLoggedIn="isLoggedIn" @signout="handleSignOut"></HeaderVue>
   <main class="flex flex-col">
     <RouterView :isLoggedIn="isLoggedIn" @login="handleLogin" />
   </main>
