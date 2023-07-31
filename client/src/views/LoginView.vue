@@ -30,7 +30,7 @@ const handleSubmit = () => {
       "email": email.value,
       "password": password.value
     }),
-  }).then((result) => {
+  }).then(() => {
     emit('login')
   }).catch(e => console.error(e));
 }
