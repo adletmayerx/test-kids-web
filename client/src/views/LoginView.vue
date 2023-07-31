@@ -31,8 +31,6 @@ const handleSubmit = () => {
       "password": password.value
     }),
   }).then((result) => {
-    console.log(result)
-
     emit('login')
   }).catch(e => console.error(e));
 }
