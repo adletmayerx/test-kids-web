@@ -38,6 +38,14 @@ class Api {
     }).then(this.checkResult);
   };
 
+  getInfo = () => {
+    return fetch(`${this._url}/users/me`, {
+      method: "GET",
+      headers: this._headers,
+      credentials: "include",
+    }).then(this.checkResult);
+  };
+
   addFeedback(feedback: string) {
     return fetch(this._url + "/users/me/feedback", {
       method: "PATCH",
@@ -61,6 +69,7 @@ const api = new Api({
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
+    Authorization: `Bearer ${localStorage.getItem("jwt")}`,
   },
 });
 

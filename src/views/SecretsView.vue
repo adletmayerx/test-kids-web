@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import api from "../utils/api"
 
 const feedback = ref('');
@@ -10,6 +10,15 @@ const handleSubmit = () => {
     feedbackIsSent.value = true;
   });
 }
+
+onMounted(() => {
+  api.getInfo().then((res) => {
+    if (res.feedback) {
+      feedbackIsSent.value = true;
+    }
+  }).catch(e => console.error(e));
+
+});
 </script>
 
 <template>
@@ -26,7 +35,7 @@ const handleSubmit = () => {
     </div>
     <form v-if="!feedbackIsSent" class="flex flex-col gap-3" @submit.prevent="handleSubmit">
       <label class="text-nero text-2xl">Буду рад, если вы оставите отзыв 📜:</label>
-      <textarea name="feedback" cols="30" rows="10" class="border border-matterhorn rounded p-3"
+      <textarea name="feedback" cols="30" rows="10" required class="border border-matterhorn rounded p-3"
         v-model="feedback"></textarea>
       <button type="submit" class="w-72 h-12 bg-matterhorn text-gray-50 rounded xl:w-96">Отправить отзыв</button>
     </form>

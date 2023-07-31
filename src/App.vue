@@ -11,7 +11,7 @@ const handleLogin = () => {
   isLoggedIn.value = true;
   router.push('/secrets');
 }
-console.log('test deploy')
+
 const handleSignOut = () => {
   isLoggedIn.value = false;
   router.push('/');

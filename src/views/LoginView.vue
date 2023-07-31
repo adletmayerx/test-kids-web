@@ -20,8 +20,9 @@ const handleInputChange = (params: { inputValue: string, type: "email" | "passwo
 }
 
 const handleSubmit = () => {
-  api.authorize(email.value, password.value).then(() => {
-    emit('login')
+  api.authorize(email.value, password.value).then((res) => {
+    localStorage.setItem("jwt", res.token)
+    emit('login');
   }).catch(e => console.error(e));
 }
 </script>
